@@ -10,4 +10,9 @@
 
 @interface ViewController : UIViewController
 
+@property (nonatomic, readwrite, weak) IBOutlet UIButton *button;
+@property (nonatomic, readwrite, weak) IBOutlet UILabel *label;
+
+- (IBAction)go:(id)sender;
+
 @end

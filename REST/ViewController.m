@@ -8,11 +8,15 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
-
-@end
-
 @implementation ViewController
+
+@synthesize button=_button;
+@synthesize label=_label;
+
+- (IBAction)go:(id)sender
+{
+    self.label.text = @"Working";
+}
 
 - (void)viewDidLoad
 {

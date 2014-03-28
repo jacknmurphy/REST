@@ -7,12 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<NSURLConnectionDelegate>
 
 @property (nonatomic, readwrite, weak) IBOutlet UIButton *button;
 @property (nonatomic, readwrite, weak) IBOutlet UILabel *label;
 
+@property (nonatomic, strong) IBOutlet UILabel *tweetId;
+@property (nonatomic, strong) IBOutlet UILabel *tweetContent;
+
+@property (nonatomic) NSURLConnection *connection;
+
+
 - (IBAction)go:(id)sender;
+- (IBAction)fetchTweet;
+
 
 @end

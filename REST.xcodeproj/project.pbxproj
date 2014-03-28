@@ -460,6 +460,7 @@
 				04FC4B01184D515000786F4C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		04FC4B02184D515000786F4C /* Build configuration list for PBXNativeTarget "RESTTests" */ = {
 			isa = XCConfigurationList;
@@ -468,6 +469,7 @@
 				04FC4B04184D515000786F4C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
+#import "MapViewController.h"
 
-@interface ViewController : UIViewController<NSURLConnectionDelegate>
+
+@interface ViewController : UIViewController<NSURLConnectionDelegate, CLLocationManagerDelegate>
+{
+    CLLocationManager *locationManager;
+}
 
 @property (nonatomic, readwrite, weak) IBOutlet UIButton *button;
 @property (nonatomic, readwrite, weak) IBOutlet UILabel *label;
@@ -18,6 +23,8 @@
 @property (nonatomic, strong) IBOutlet UILabel *tweetContent;
 
 @property (nonatomic) NSURLConnection *connection;
+
+@property (nonatomic, strong) MapViewController *mapView;
 
 
 - (IBAction)go:(id)sender;

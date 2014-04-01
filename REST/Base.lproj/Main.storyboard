@@ -33,6 +33,7 @@
                                 </state>
                                 <connections>
                                     <action selector="go:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="N6y-wa-YzD"/>
+                                    <segue destination="m9P-FP-Qcc" kind="modal" id="t8L-QV-sIa"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -44,6 +45,36 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="3NW-Be-1ir">
+            <objects>
+                <viewController id="m9P-FP-Qcc" customClass="MapViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="a0V-G6-ZKv"/>
+                        <viewControllerLayoutGuide type="bottom" id="zTs-a9-Gcx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zMf-Cu-drE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Ja-7u-fY7">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="m9P-FP-Qcc" id="Fr3-Cu-s9f"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="7Ja-7u-fY7" id="d8h-Ru-nKP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cvP-Rj-0aN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="688" y="-48"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

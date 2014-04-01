@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0420D2CF18E6280200462C4D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0420D2CE18E6280200462C4D /* MapKit.framework */; };
+		0420D2D118E62F3700462C4D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0420D2D018E62F3700462C4D /* CoreLocation.framework */; };
+		0420D2E018E633FB00462C4D /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0420D2DF18E633FB00462C4D /* MapViewController.m */; };
 		04FC4AD1184D515000786F4C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FC4AD0184D515000786F4C /* Foundation.framework */; };
 		04FC4AD3184D515000786F4C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FC4AD2184D515000786F4C /* CoreGraphics.framework */; };
 		04FC4AD5184D515000786F4C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FC4AD4184D515000786F4C /* UIKit.framework */; };
@@ -34,6 +37,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0420D2CE18E6280200462C4D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		0420D2D018E62F3700462C4D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		0420D2DE18E633FB00462C4D /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		0420D2DF18E633FB00462C4D /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		04FC4ACD184D515000786F4C /* REST.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = REST.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04FC4AD0184D515000786F4C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		04FC4AD2184D515000786F4C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -60,6 +67,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0420D2D118E62F3700462C4D /* CoreLocation.framework in Frameworks */,
+				0420D2CF18E6280200462C4D /* MapKit.framework in Frameworks */,
 				04FC4AD3184D515000786F4C /* CoreGraphics.framework in Frameworks */,
 				04FC4AD5184D515000786F4C /* UIKit.framework in Frameworks */,
 				04FC4AD1184D515000786F4C /* Foundation.framework in Frameworks */,
@@ -101,6 +110,8 @@
 		04FC4ACF184D515000786F4C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0420D2D018E62F3700462C4D /* CoreLocation.framework */,
+				0420D2CE18E6280200462C4D /* MapKit.framework */,
 				04FC4AD0184D515000786F4C /* Foundation.framework */,
 				04FC4AD2184D515000786F4C /* CoreGraphics.framework */,
 				04FC4AD4184D515000786F4C /* UIKit.framework */,
@@ -112,6 +123,8 @@
 		04FC4AD6184D515000786F4C /* REST */ = {
 			isa = PBXGroup;
 			children = (
+				0420D2DE18E633FB00462C4D /* MapViewController.h */,
+				0420D2DF18E633FB00462C4D /* MapViewController.m */,
 				04FC4ADF184D515000786F4C /* AppDelegate.h */,
 				04FC4AE0184D515000786F4C /* AppDelegate.m */,
 				04FC4AE2184D515000786F4C /* Main.storyboard */,
@@ -252,6 +265,7 @@
 				04FC4AE7184D515000786F4C /* ViewController.m in Sources */,
 				04FC4AE1184D515000786F4C /* AppDelegate.m in Sources */,
 				04FC4ADD184D515000786F4C /* main.m in Sources */,
+				0420D2E018E633FB00462C4D /* MapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

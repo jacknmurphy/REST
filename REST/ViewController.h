@@ -24,8 +24,7 @@
 
 @property (nonatomic) NSURLConnection *connection;
 
-@property (nonatomic, strong) MapViewController *mapView;
-
+@property (nonatomic, strong) MapViewController *mapViewController;
 
 - (IBAction)go:(id)sender;
 - (IBAction)fetchTweet;

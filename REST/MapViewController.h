@@ -14,5 +14,4 @@
 @property (nonatomic, strong) IBOutlet MKMapView *mapView;
 
 - (void)place:(NSArray *)tweetData;
-
 @end

@@ -13,52 +13,57 @@
 
 @implementation ViewController
 
+//Synthesizing object for the ViewController view
 @synthesize button=_button;
 @synthesize label=_label;
 @synthesize tweetId=_tweetId;
 @synthesize tweetContent=_tweetContent;
 @synthesize connection=_connection;
-@synthesize mapView=_mapView;
+@synthesize mapViewController=_mapViewController;
 
-NSString *tweet;
-NSMutableArray *locationArray;
+NSString *tweet; //String to hold received tweet data.
+NSMutableArray *locationArray; //Array for holding the devices location.
+
+
 
 - (IBAction)fetchTweet
 {
     
-    NSString *sendCo = [[locationArray valueForKey:@"description"] componentsJoinedByString:@","];
+    NSString *sendCo = [[locationArray valueForKey:@"description"] componentsJoinedByString:@","]; //Storing the lat an lon of devices location in a single string.
     
     NSLog(@"sendCo: %@", sendCo);
     
-    NSURL *url = [NSURL URLWithString:@"http://127.0.0.1:8080/Jersey/rest/hello"];
+    NSURL *url = [NSURL URLWithString:@"http://127.0.0.1:8080/Jersey/rest/tweet"]; //URL of server application.
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                                       timeoutInterval:60.0];
-    [request setHTTPMethod:@"POST"];
+                                                       timeoutInterval:60.0];  //Creating request object
+    [request setHTTPMethod:@"POST"]; //Specifying request as POST request.
     
-    [request setValue:@"text/html" forHTTPHeaderField: @"Content-Type"];
+    [request setValue:@"text/html" forHTTPHeaderField: @"Content-Type"]; //Assigning content type.
     
-    [request setHTTPBody:[sendCo dataUsingEncoding:NSUTF8StringEncoding]];
+    [request setHTTPBody:[sendCo dataUsingEncoding:NSUTF8StringEncoding]]; //Attaching devices location to request.
 
-    NSData *urlData;
-    NSURLResponse *response;
-    NSError *error;
+    NSData *urlData; //Variable for holding returned data from server
+    NSURLResponse *response; //Holds response message.
+    NSError *error; //Holds error message, if one exists.
     
     urlData = [NSURLConnection sendSynchronousRequest:request
                                     returningResponse:&response
-                                                error:&error];
+                                                error:&error]; //Sending the POST request
     
-    tweet = [[NSString alloc] initWithData:urlData encoding:NSUTF8StringEncoding];
+    tweet = [[NSString alloc] initWithData:urlData encoding:NSUTF8StringEncoding]; //Converting the returned data to a string.
     
     NSArray *jsonData = [NSJSONSerialization JSONObjectWithData:[tweet dataUsingEncoding:NSUTF8StringEncoding]
-                                                        options:0 error:NULL];
+                                                        options:0 error:NULL]; //Converting the String to an array of JSONObjects.
     
-    //NSArray *data = [jsonData valueForKey:@"coordinates"];
     
-    NSLog(@"%@", jsonData);
+    //NSLog(@"%@", jsonData);
     
-    _mapView = [[MapViewController alloc] init];
-    [_mapView place:jsonData];
+    NSLog(@"These are tweets");
+    
+    
+    _mapViewController = [[MapViewController alloc] init];
+    [_mapViewController place:jsonData]; //Calling the place method in MapViewController.
     
     //NSLog(@"%@", tweet);
 }
@@ -85,6 +90,7 @@ NSMutableArray *locationArray;
 - (IBAction)go:(id)sender
 {
     [self fetchTweet];
+
     self.label.text = tweet;
 }
 
@@ -92,12 +98,11 @@ NSMutableArray *locationArray;
 {
     [super viewDidLoad];
     
-    locationManager = [[CLLocationManager alloc] init];
+    locationManager = [[CLLocationManager alloc] init]; //Creating the location manager to capture devices location.
     locationManager.delegate = self;
-    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest; //Stting accuracy at best.
     
-    [locationManager startUpdatingLocation];
-	// Do any additional setup after loading the view, typically from a nib.
+    [locationManager startUpdatingLocation]; //Capture location.
 }
 
 - (void)locationManager:(CLLocationManager *)locationManager didFailWithError:(NSError *)error
@@ -107,21 +112,21 @@ NSMutableArray *locationArray;
 
 - (void)locationManager:(CLLocationManager *)locationManager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
-    [locationManager stopUpdatingLocation];
+    [locationManager stopUpdatingLocation]; //Stop capturing location.
     NSLog(@"newLocation %@", newLocation);
-    CLLocation *location = newLocation;
+    CLLocation *location = newLocation; //Store location.
     NSLog(@"location %@", location);
-    double lat = location.coordinate.latitude;
-    double lon = location.coordinate.longitude;
+    double lat = location.coordinate.latitude; //Get latitude.
+    double lon = location.coordinate.longitude; //Get longitutde.
     
-    NSString *lat2 = [NSString stringWithFormat:@"%.8f", lat];
-    NSString *lon2 = [NSString stringWithFormat:@"%.8f", lon];
+    NSString *lat2 = [NSString stringWithFormat:@"%.8f", lat]; //Convert to string.
+    NSString *lon2 = [NSString stringWithFormat:@"%.8f", lon]; //Convert to string.
     
     NSLog(@"lat:%f, lat2:%@", lat, lat2);
     
     locationArray = [[NSMutableArray alloc] init];
-    [locationArray addObject:lat2];
-    [locationArray addObject:lon2];
+    [locationArray addObject:lat2]; //Store latitude as objec in array.
+    [locationArray addObject:lon2]; //The same function with longitude.
     
     NSLog(@" array %@", locationArray);
 

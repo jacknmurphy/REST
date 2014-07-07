@@ -1,4 +1,4 @@
-REST
+iOS Application
 ====
 This is iOS application built for my Final Year Project.
 This application works in conjunction with a Java server application which is also posted on this GitHub account.

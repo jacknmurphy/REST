@@ -1,6 +1,6 @@
 iOS Application
 ====
-This is iOS application built for my Final Year Project.
+This is an iOS application built for my Final Year Project.
 This application works in conjunction with a Java server application which is also posted on this GitHub account.
 
 The aim of the project was to allow users to view Tweets posted within their surrounding location on a map.
